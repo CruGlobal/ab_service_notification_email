@@ -46,7 +46,7 @@ module.exports = {
     *        a node style callback(err, results) to send data when job is finished
     */
    fn: function handler(req, cb) {
-      var err;
+      // var err;
 
       req.log("NotificationEmail.email: request received.");
 
