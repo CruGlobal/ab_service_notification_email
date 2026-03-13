@@ -2,16 +2,11 @@
  * handler
  * our Request handler.
  */
-// const async = require("async");
-// const fs = require("fs");
-const path = require("path");
+import sendModule from "../src/send.js";
 
-const send = require(path.join(__dirname, "..", "src", "send.js")).send;
+const { send } = sendModule;
 
-module.exports = {
-   /**
-    * Key: the cote message key we respond to.
-    */
+export default {
    key: "notification_email.email",
 
    /**
@@ -46,8 +41,6 @@ module.exports = {
     *        a node style callback(err, results) to send data when job is finished
     */
    fn: function handler(req, cb) {
-      // var err;
-
       req.log("NotificationEmail.email: request received.");
 
       var config = req.config();
@@ -71,7 +64,6 @@ module.exports = {
             cb(null, { status: "success" });
          })
          .catch((err) => {
-            // req.log("error sending email:", err);
             req.notify.developer(err, {
                context: "error sending email",
                email,

@@ -1,10 +1,11 @@
 /*
  * notification_email
  */
-const AB = require("@digiserve/ab-utils");
+import AB from "@digiserve/ab-utils";
+
 const env = AB.defaults.env;
 
-module.exports = {
+export default {
    notification_email: {
       /*************************************************************************/
       /* enable: {bool} is this service active?                                */
