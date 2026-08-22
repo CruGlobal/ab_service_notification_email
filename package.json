@@ -9,7 +9,7 @@
    "dependencies": {
       "@digiserve/ab-utils": "github:CruGlobal/ab-utils#1.10.2",
       "cote": "^1.2.0",
-      "nodemailer": "^6.9.1",
+      "nodemailer": "^9.0.5",
       "semver": "^7.7.4"
    },
    "scripts": {
