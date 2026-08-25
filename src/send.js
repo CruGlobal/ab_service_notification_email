@@ -1,13 +1,13 @@
 //
 // send
 // Send the email via nodemailer
-const AB = require("@digiserve/ab-utils");
+import AB from "@digiserve/ab-utils";
+import nodeMailer from "nodemailer";
 
 const config = AB.config("notification_email");
-const nodeMailer = require("nodemailer");
 var transports = {};
 
-module.exports = {
+export default {
    /**
     * send()
     * send an email using a predefined SMTP transport.
@@ -53,7 +53,6 @@ module.exports = {
                }
                reject(err);
             } else {
-               // console.log("send():success:", responseStatus);
                resolve(responseStatus);
             }
          });
