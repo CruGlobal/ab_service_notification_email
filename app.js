@@ -2,14 +2,18 @@
 // notification_email
 // A service to send emails.
 //
-const AB = require("@digiserve/ab-utils");
-const { version } = require("./package");
+import AB from "@digiserve/ab-utils";
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
+const { version } = require("./package.json");
+
 // Use sentry by default, but can override with env.TELEMETRY_PROVIDER
 if (AB.defaults.env("TELEMETRY_PROVIDER", "sentry") == "sentry") {
    AB.telemetry.init("sentry", {
       dsn: AB.defaults.env(
          "SENTRY_DSN",
-         "https://a965e0a0124aacb664daa5bf00ada70f@o144358.ingest.sentry.io/4506143835750401"
+         "https://a965e0a0124aacb664daa5bf00ada70f@o144358.ingest.sentry.io/4506143835750401",
       ),
       release: version,
    });
